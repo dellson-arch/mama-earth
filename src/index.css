@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,3 +12,4 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+

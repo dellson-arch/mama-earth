@@ -1,5 +1,5 @@
 import React from "react";
-import useDarkMode from "../hooks/UseDarkMode"; // adjust path if needed
+import useDarkMode from "../hooks/UseDarkMode";
 
 export default function Navbar() {
   const [isDark, setIsDark] = useDarkMode();
@@ -59,7 +59,8 @@ export default function Navbar() {
           className="ml-2 p-1 rounded-full text-xl hover:text-green-700 dark:hover:text-green-400"
           aria-label="Toggle dark mode"
         >
-          {isDark ? "🌙" : "☀️"}
+          {isDark ? "☀️" : "🌙"}
+          
         </button>
       </div>
     </div>
