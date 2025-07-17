@@ -1,34 +1,34 @@
 import React from "react";
 
-export default function Testimonials() {
-  const feedbacks = [
-    {
-      name: "Aarav M.",
-      quote: "My skin has never felt better. This is a must-try brand!",
-      img: "https://randomuser.me/api/portraits/men/32.jpg",
-    },
-    {
-      name: "Isha K.",
-      quote: "Natural, affordable and smells amazing!",
-      img: "https://randomuser.me/api/portraits/women/65.jpg",
-    },
-  ];
+const reviews = [
+  {
+    id: 1,
+    name: "Aarav",
+    comment: "My hair feels so soft after using their Onion Oil!",
+  },
+  {
+    id: 2,
+    name: "Sneha",
+    comment: "I love how fresh my skin feels. Glow Serum is 🔥.",
+  },
+];
 
+export default function Testimonials() {
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h3 className="text-4xl font-bold text-gray-800 mb-12">What People Are Saying</h3>
-        <div className="grid md:grid-cols-2 gap-10">
-          {feedbacks.map((user, i) => (
-            <div key={i} className="p-8 bg-gray-100 rounded-xl shadow-md text-left">
-              <p className="text-lg font-medium text-gray-700 mb-4">“{user.quote}”</p>
-              <div className="flex items-center gap-4">
-                <img src={user.img} className="w-12 h-12 rounded-full" />
-                <span className="font-semibold text-gray-800">{user.name}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="px-6 py-10 bg-white dark:bg-gray-900 transition-colors duration-500">
+      <h2 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">
+        Happy Customers
+      </h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        {reviews.map((r) => (
+          <div
+            key={r.id}
+            className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl shadow dark:shadow-md p-6 transition-colors duration-500"
+          >
+            <p className="italic text-sm mb-2">"{r.comment}"</p>
+            <h4 className="text-sm font-semibold">– {r.name}</h4>
+          </div>
+        ))}
       </div>
     </section>
   );

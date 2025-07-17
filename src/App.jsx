@@ -7,6 +7,7 @@ import Testimonials from "./components/Testimonials";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
 
+
 export default function App() {
   return (
     <div>
@@ -20,3 +21,8 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
+

@@ -1,45 +1,80 @@
 import React from "react";
-import { Star } from "lucide-react";
+
+const productList = [
+  {
+    id: 1,
+    name: "Onion Hair Oil",
+    price: "₹419",
+    image: "/images/product1.png",
+  },
+  {
+    id: 2,
+    name: "Vitamin C Face Wash",
+    price: "₹299",
+    image: "/images/product2.png",
+  },
+  {
+    id: 3,
+    name: "Ubtan Face Mask",
+    price: "₹349",
+    image: "/images/product3.png",
+  },
+  {
+    id: 4,
+    name: "Charcoal Face Scrub",
+    price: "₹279",
+    image: "/images/product4.png",
+  },
+  {
+    id: 5,
+    name: "Tea Tree Shampoo",
+    price: "₹325",
+    image: "/images/product5.png",
+  },
+  {
+    id: 6,
+    name: "Aloe Vera Gel",
+    price: "₹199",
+    image: "/images/product6.png",
+  },
+  {
+    id: 7,
+    name: "Sunscreen SPF50+",
+    price: "₹449",
+    image: "/images/product7.png",
+  },
+  {
+    id: 8,
+    name: "Lip Balm Strawberry",
+    price: "₹149",
+    image: "/images/product8.png",
+  },
+];
 
 export default function Products() {
-  const productList = [1, 2, 3];
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <h3 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Handpicked for Your Glow
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {productList.map((item) => (
-            <div
-              key={item}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden transition hover:-translate-y-1 hover:shadow-2xl"
-            >
-              <img
-                src={`https://source.unsplash.com/400x300/?natural,facecare&sig=${item}`}
-                alt="Product"
-                className="w-full h-60 object-cover"
-              />
-              <div className="p-6">
-                <h4 className="text-xl font-semibold text-gray-800">
-                  Glow Boost Serum
-                </h4>
-                <p className="text-sm text-gray-500 mt-1">Infused with Vitamin C & Turmeric</p>
-                <div className="flex items-center mt-2 gap-1 text-yellow-400">
-                  {[...Array(4)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400" />
-                  ))}
-                  <Star className="w-5 h-5 text-gray-300" />
-                  <span className="ml-2 text-sm text-gray-600">4.7</span>
-                </div>
-                <p className="mt-4 text-2xl font-bold text-primary">₹549</p>
-                <button className="mt-4 w-full bg-primary hover:bg-green-700 text-white py-2 rounded-full font-medium shadow-md">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="px-6 py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <h2 className="text-2xl font-bold mb-8 text-center text-green-700 dark:text-green-400">
+        Best Sellers
+      </h2>
+      <div className="flex overflow-x-auto gap-6 pb-2 scrollbar-hide">
+        {productList.map((product) => (
+          <div
+            key={product.id}
+            className="min-w-[220px] bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-2xl shadow-md p-4 flex-shrink-0 transition transform hover:scale-105 hover:shadow-xl duration-300"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-40 object-contain mb-3"
+            />
+            <h4 className="text-sm font-semibold">{product.name}</h4>
+            <p className="text-green-700 dark:text-green-300 font-bold">{product.price}</p>
+            <button className="mt-3 bg-green-600 text-white rounded-full py-1 px-4 text-sm hover:bg-green-700 transition">
+              Add to Cart
+            </button>
+          </div>
+        ))}
       </div>
     </section>
   );
