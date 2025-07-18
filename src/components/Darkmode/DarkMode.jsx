@@ -1,34 +1,38 @@
-
-import { Moon, Sun } from "../components/DarkMode/Sun";
+// src/components/Darkmode/DarkMode.jsx
+import React, { useEffect, useState } from "react";
+import sun from "./Sun.svg";
+import moon from "./Moon.svg";
 import "./DarkMode.css";
 
 const DarkMode = () => {
-    const setDarkMode = () => {
-        document.querySelector("body").setAttribute('data-theme', 'dark');
-    };
-    const setLightMode = () => {
-        document.querySelector("body").setAttribute('data-theme', 'light');
-    };
+  const [theme, setTheme] = useState("light");
 
-    const toggleTheme  = e =>{
-        if (e.target.checked) setDarkMode()
-            else setLightMode();
-    } 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "light";
+    setTheme(storedTheme);
+    document.documentElement.setAttribute("data-theme", storedTheme);
+  }, []);
 
-    return (
-        <div className='dark_mode'>
-            <input
-                className='dark_mode_input'
-                type='checkbox'
-                id='darkmode-toggle'
-                onChange ={toggleTheme}
-            />
-            <label className='dark_mode_label' htmlFor='darkmode-toggle'>
-                <Sun/>
-                <Moon/>
-            </label>
-        </div>
-    );
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
+  return (
+    <div
+      className="fixed top-4 right-4 z-50 bg-gray-100 dark:bg-gray-800 p-2 rounded-full shadow-md cursor-pointer"
+      onClick={toggleTheme}
+      title="Toggle theme"
+    >
+      <img
+        src={theme === "light" ? moon : sun}
+        alt="toggle icon"
+        className="w-6 h-6"
+      />
+    </div>
+  );
 };
 
 export default DarkMode;

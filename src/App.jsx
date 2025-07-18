@@ -10,8 +10,8 @@ import DarkMode from "./components/Darkmode/DarkMode";
 
 export default function App() {
   return (
-    <div className="app bg-white text-gray-900">
-      <DarkMode/>
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] transition-colors duration-300">
+      <DarkMode />
       <Navbar />
       <Hero />
       <Products />

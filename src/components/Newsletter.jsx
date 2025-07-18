@@ -20,10 +20,10 @@ export default function Newsletter() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-full text-sm shadow-sm bg-white text-gray-800 placeholder-gray-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="flex-1 px-4 py-2 border border-gray-300 rounded-full text-sm shadow-sm bg-[var(--bg)] text-[var(--text)] placeholder-gray-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           <button
-            className="bg-green-600 text-white px-4 py-2 rounded-full text-sm hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="bg-green-600 text-[var(--text)] px-4 py-2 rounded-full text-sm hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500"
           >
             Subscribe
           </button>

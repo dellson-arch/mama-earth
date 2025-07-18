@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <div className="w-full px-6 py-14 bg-gradient-to-r from-green-50 via-white to-blue-50 grid md:grid-cols-3 gap-6">
       {/* We Plant card */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between transition hover:scale-105 duration-300">
+      <div className="bg-[var(--bg)] rounded-2xl shadow-xl p-6 flex flex-col justify-between transition hover:scale-105 duration-300">
         <h2 className="text-2xl font-bold text-green-700 mb-2">We Plant</h2>
         <p className="text-sm text-gray-600 mb-4">For Every Product You Buy</p>
         <img src="/images/leaf.png" alt="Leaf" className="w-16" />

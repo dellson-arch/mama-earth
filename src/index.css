@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
-:root{
-  --body_background : white ;
-  --body_color : black;
-  --link_color : navy
-}
-[data-theme = "dark"]{
-  --body_background :#282c34;
-  --body_color : white ;
-  --link_color : cyan;
-}
+
 @tailwind utilities;
+
+:root {
+  --bg: white;
+  --text: #1f2937; /* gray-900 */
+}
+
+[data-theme='dark'] {
+  --bg: #111827;
+  --text: #f9fafb;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
