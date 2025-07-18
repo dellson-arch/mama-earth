@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useTheme } from "../context/ThemeContext";
+import React from "react";
 
 function LeafIcon({ className }) {
   return (
@@ -25,7 +24,7 @@ function NavButton({ icon, label, onClick, className = "" }) {
   return (
     <button 
       onClick={onClick}
-      className={`flex items-center gap-1 hover:text-green-700 dark:hover:text-green-400 transition-colors duration-200 ${className}`}
+      className={`flex items-center gap-1 hover:text-green-700 transition-colors duration-200 ${className}`}
       aria-label={label}
     >
       {icon}
@@ -35,25 +34,12 @@ function NavButton({ icon, label, onClick, className = "" }) {
 }
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
-
-  // Debug effect - remove in production
-  useEffect(() => {
-    console.log(`Current Theme: ${theme}`);
-    console.log(`HTML Class: ${document.documentElement.className}`);
-  }, [theme]);
-
-  const handleToggle = () => {
-    console.log("Toggling theme from:", theme);
-    toggleTheme();
-  };
-
   return (
-    <nav className="w-full bg-white dark:bg-gray-900 shadow-md p-4 flex items-center justify-between px-6 sticky top-0 z-50 transition-colors duration-300">
+    <nav className="w-full bg-white shadow-md p-4 flex items-center justify-between px-6 sticky top-0 z-50 transition-colors duration-300">
       {/* Logo Section */}
       <div className="flex items-center gap-2">
-        <LeafIcon className="w-8 h-8 text-green-600 dark:text-green-400 transition-colors duration-300" />
-        <span className="text-2xl font-bold text-green-600 dark:text-green-400 transition-colors duration-300">
+        <LeafIcon className="w-8 h-8 text-green-600 transition-colors duration-300" />
+        <span className="text-2xl font-bold text-green-600 transition-colors duration-300">
           mamaearth
         </span>
       </div>
@@ -63,7 +49,7 @@ export default function Navbar() {
         <input
           type="text"
           placeholder="Search products..."
-          className="w-full px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-sm bg-white dark:bg-gray-800 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400 transition-all duration-300"
+          className="w-full px-4 py-2 rounded-full border border-gray-300 text-sm bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
         />
       </div>
 
@@ -86,19 +72,6 @@ export default function Navbar() {
           }
           label="Cart"
         />
-
-        {/* Dark Mode Toggle */}
-        <button
-          onClick={handleToggle}
-          className="ml-2 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        >
-          {theme === 'dark' ? (
-            <span className="text-yellow-400 text-xl">☀️</span>
-          ) : (
-            <span className="text-gray-600 dark:text-gray-300 text-xl">🌙</span>
-          )}
-        </button>
       </div>
     </nav>
   );

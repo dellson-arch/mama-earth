@@ -53,15 +53,15 @@ const productList = [
 
 export default function Products() {
   return (
-    <section className="px-6 py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <h2 className="text-2xl font-bold mb-8 text-center text-green-700 dark:text-green-400">
+    <section className="px-6 py-16 bg-white transition-colors duration-300">
+      <h2 className="text-2xl font-bold mb-8 text-center text-green-700">
         Best Sellers
       </h2>
       <div className="flex overflow-x-auto gap-6 pb-2 scrollbar-hide">
         {productList.map((product) => (
           <div
             key={product.id}
-            className="min-w-[220px] bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-2xl shadow-md p-4 flex-shrink-0 transition transform hover:scale-105 hover:shadow-xl duration-300"
+            className="min-w-[220px] bg-white text-gray-800 rounded-2xl shadow-md p-4 flex-shrink-0 transition transform hover:scale-105 hover:shadow-xl duration-300"
           >
             <img
               src={product.image}
@@ -69,8 +69,8 @@ export default function Products() {
               className="w-full h-40 object-contain mb-3"
             />
             <h4 className="text-sm font-semibold">{product.name}</h4>
-            <p className="text-green-700 dark:text-green-300 font-bold">{product.price}</p>
-            <button className="mt-3 bg-green-600 text-white rounded-full py-1 px-4 text-sm hover:bg-green-700 transition">
+            <p className="text-green-700 font-bold">{product.price}</p>
+            <button className="mt-3 bg-green-600 hover:bg-green-700 text-white rounded-full py-1 px-4 text-sm transition">
               Add to Cart
             </button>
           </div>

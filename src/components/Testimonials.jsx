@@ -15,15 +15,15 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section className="px-6 py-10 bg-white dark:bg-gray-900 transition-colors duration-500">
-      <h2 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">
+    <section className="px-6 py-10 bg-white transition-colors duration-500">
+      <h2 className="text-xl font-bold mb-6 text-gray-800">
         Happy Customers
       </h2>
       <div className="grid md:grid-cols-2 gap-6">
         {reviews.map((r) => (
           <div
             key={r.id}
-            className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-xl shadow dark:shadow-md p-6 transition-colors duration-500"
+            className="bg-white text-gray-800 rounded-xl shadow p-6 transition-colors duration-500"
           >
             <p className="italic text-sm mb-2">"{r.comment}"</p>
             <h4 className="text-sm font-semibold">– {r.name}</h4>

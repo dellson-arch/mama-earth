@@ -1,74 +1,13 @@
 @import "tailwindcss";
 
+:root{
+  --body_background : white ;
+  --body_color : black;
+  --link_color : navy
+}
+[data-theme = "dark"]{
+  --body_background :#282c34;
+  --body_color : white ;
+  --link_color : cyan;
+}
 @tailwind utilities;
-/* Force theme transitions on all elements */
-* {
-  transition: 
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
-}
-
-
-/* Emergency theme override */
-[data-theme="dark"] {
-  --bg-color: #111827 !important;
-  --text-color: #f3f4f6 !important;
-}
-[data-theme="light"] {
-  --bg-color: #ffffff !important;
-  --text-color: #111827 !important;
-}
-html {
-  scroll-behavior: smooth;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-
-@layer base {
-  :root {
-    color-scheme: light dark;
-  }
-  
-/* Force synchronous theme application */
-html {
-  @apply bg-white dark:bg-gray-900;
-  color-scheme: light dark;
-  transition: background-color 0s !important;
-}
-
-/* Nuclear option to prevent flashes */
-@layer base {
-  html.light {
-    --color-bg: theme('colors.white');
-    --color-text: theme('colors.gray.900');
-  }
-  html.dark {
-    --color-bg: theme('colors.gray.900');
-    --color-text: theme('colors.gray.100');
-  }
-  body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)];
-  }
-}
-  
-  /* .light {
-    --color-bg-primary: theme('colors.white');
-    --color-bg-secondary: theme('colors.gray.50');
-    --color-text-primary: theme('colors.gray.900');
-    --color-text-secondary: theme('colors.gray.700');
-  }
-  
-  .dark {
-    --color-bg-primary: theme('colors.gray.900');
-    --color-bg-secondary: theme('colors.gray.800');
-    --color-text-primary: theme('colors.gray.100');
-    --color-text-secondary: theme('colors.gray.300');
-  }
-} */}
