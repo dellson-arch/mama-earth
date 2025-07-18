@@ -5,11 +5,32 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <script>
+      // Enhanced theme initialization
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const initialTheme = savedTheme || (systemDark ? 'dark' : 'light');
+          
+          // Apply before first paint
+          document.documentElement.classList.add(initialTheme);
+          document.documentElement.style.colorScheme = initialTheme;
+          
+          // Set as attribute for better selector specificity
+          document.documentElement.setAttribute('data-theme', initialTheme);
+          
+          // Backup for extremely fast devices
+          document.documentElement.style.backgroundColor = 
+            initialTheme === 'dark' ? '#111827' : '#ffffff';
+        } catch (e) {
+          console.error('Theme initialization error:', e);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
-
