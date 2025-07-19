@@ -1,16 +1,17 @@
 import React from "react";
+import DarkMode from "../components/Darkmode/DarkMode"; // ✅ Import added
 
 function LeafIcon({ className }) {
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="32" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
       height="32"
-      viewBox="0 0 24 24" 
-      fill="none" 
+      viewBox="0 0 24 24"
+      fill="none"
       stroke="currentColor"
-      strokeWidth="2" 
-      strokeLinecap="round" 
+      strokeWidth="2"
+      strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
     >
@@ -22,7 +23,7 @@ function LeafIcon({ className }) {
 
 function NavButton({ icon, label, onClick, className = "" }) {
   return (
-    <button 
+    <button
       onClick={onClick}
       className={`flex items-center gap-1 hover:text-green-700 transition-colors duration-200 ${className}`}
       aria-label={label}
@@ -53,7 +54,7 @@ export default function Navbar() {
         />
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons + Dark Mode */}
       <div className="flex gap-4 text-sm items-center">
         <NavButton
           icon={
@@ -72,6 +73,11 @@ export default function Navbar() {
           }
           label="Cart"
         />
+
+        {/* ✅ Dark Mode Toggle Button */}
+        <div className="ml-7">
+          <DarkMode />
+        </div>
       </div>
     </nav>
   );

@@ -2,25 +2,41 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="w-full px-6 py-14 bg-gradient-to-r from-green-50 via-white to-blue-50 grid md:grid-cols-3 gap-6">
-      {/* We Plant card */}
-      <div className="bg-[var(--bg)] rounded-2xl shadow-xl p-6 flex flex-col justify-between transition hover:scale-105 duration-300">
-        <h2 className="text-2xl font-bold text-green-700 mb-2">We Plant</h2>
-        <p className="text-sm text-gray-600 mb-4">For Every Product You Buy</p>
-        <img src="/images/leaf.png" alt="Leaf" className="w-16" />
+    <section className="w-full h-screen flex items-center justify-between px-6 lg:px-20 py-6 bg-background text-foreground relative overflow-hidden">
+      {/* Left Content */}
+      <div className="max-w-xl z-10">
+        <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-4">
+          Glow Naturally with <span className="text-green-500">Mamaearth</span>
+        </h1>
+        <p className="text-lg lg:text-xl text-muted-foreground mb-6">
+          Discover skincare powered by nature, designed for you. Safe, effective, and eco-conscious.
+        </p>
+        <div className="flex gap-4">
+          <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-lg transition-all shadow-md">
+            Shop Now
+          </button>
+          <button className="border border-green-500 text-green-500 px-6 py-3 rounded-full text-lg hover:bg-green-500 hover:text-white transition-all">
+            Learn More
+          </button>
+        </div>
       </div>
 
-      {/* Glow Serum banner */}
-      <div className="md:col-span-2 bg-gradient-to-r from-[#c7f0ff] to-[#d5f7ff] rounded-2xl p-8 shadow-xl">
-        <h2 className="text-3xl font-semibold text-blue-800 mb-6">
-          Glow Serum Foundation
-        </h2>
-        <img
-          src="/images/serum.png"
-          alt="Glow Serum"
-          className="w-full max-h-64 object-contain mx-auto"
-        />
+      {/* Right Visual (Video or Image) */}
+      <div className="hidden lg:flex w-[52%] justify-end z-0">
+        <div className="w-full h-[85vh] rounded-3xl overflow-hidden shadow-2xl border border-muted">
+          <video
+            src="/your-video.mp4" // Replace with actual path
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
-    </div>
+
+      {/* Optional gradient overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-background pointer-events-none" />
+    </section>
   );
 }

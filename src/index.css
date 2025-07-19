@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
-
 @tailwind utilities;
 
 :root {
   --bg: white;
-  --text: #1f2937; /* gray-900 */
+  --text: #1f2937; 
+  --price: #34d399; /* Tailwind green-400 */
+  --cta: #10b981; 
 }
 
 [data-theme='dark'] {
@@ -18,4 +19,5 @@ body {
   color: var(--text);
   transition: background-color 0.3s, color 0.3s;
 }
+
 

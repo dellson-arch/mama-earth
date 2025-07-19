@@ -13,19 +13,36 @@ const productList = [
 
 export default function Products() {
   return (
-    <section style={{ backgroundColor: "var(--bg)", color: "var(--text)" }} className="px-6 py-16 transition-colors duration-300">
-      <h2 className="text-2xl font-bold mb-8 text-center text-green-600 dark:text-green-400">Best Sellers</h2>
-      <div className="flex overflow-x-auto gap-6 pb-2 scrollbar-hide">
+    <section className="px-6 md:px-12 py-20 bg-[var(--bg)]">
+      <h2 className="text-2xl font-bold mb-12 text-center text-[var(--accent)]">
+        Best Sellers
+      </h2>
+
+      <div className="flex flex-wrap justify-center gap-8 md:gap-12">
         {productList.map((product) => (
           <div
             key={product.id}
-            style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
-            className="min-w-[220px] rounded-2xl shadow-md p-4 flex-shrink-0 transition transform hover:scale-105 hover:shadow-xl duration-300"
+            className="group relative w-[240px] transition-transform duration-300 ease-in-out transform hover:scale-105"
           >
-            <img src={product.image} alt={product.name} className="w-full h-40 object-contain mb-3" />
-            <h4 className="text-sm font-semibold">{product.name}</h4>
-            <p className="text-green-600 dark:text-green-400 font-bold">{product.price}</p>
-            <button className="mt-3 bg-green-600 hover:bg-green-700 text-[var(--text)] rounded-full py-1 px-4 text-sm transition">Add to Cart</button>
+            <div
+              className="p-5 rounded-2xl bg-[var(--card)] text-[var(--text)] 
+              border border-transparent group-hover:border-[var(--accent)] 
+              shadow-lg group-hover:shadow-[0_12px_32px_rgba(0,0,0,0.4)] 
+              transition-all duration-300 overflow-hidden"
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-40 object-contain mb-4"
+              />
+              <h4 className="text-base font-semibold mb-1">{product.name}</h4>
+             <p className="text-[var(--price)] font-semibold text-sm mb-3">{product.price}</p>
+
+<button className="w-full bg-[var(--cta)] hover:brightness-110 text-white font-semibold rounded-full py-2 text-sm transition-shadow shadow hover:shadow-md">
+  Add to Cart
+</button>
+
+            </div>
           </div>
         ))}
       </div>

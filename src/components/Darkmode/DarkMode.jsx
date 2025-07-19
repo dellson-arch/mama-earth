@@ -10,14 +10,14 @@ const DarkMode = () => {
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
     setTheme(storedTheme);
-    document.documentElement.setAttribute("data-theme", storedTheme);
+    document.body.setAttribute("data-theme", storedTheme); // ✅ FIXED
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    document.body.setAttribute("data-theme", newTheme); // ✅ FIXED
   };
 
   return (
@@ -27,7 +27,7 @@ const DarkMode = () => {
       title="Toggle theme"
     >
       <img
-        src={theme === "light" ? moon : sun}
+        src={theme === "light" ? sun : moon}
         alt="toggle icon"
         className="w-6 h-6"
       />
